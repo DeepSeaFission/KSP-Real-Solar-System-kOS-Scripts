@@ -1,0 +1,12 @@
+SET S TO SHIP.
+LOCK THROTTLE TO 1.0.
+STAGE.
+WAIT 0.65.
+WHEN S:THRUST < 14 THEN STAGE.
+SET A TO -1.
+UNTIL A > S:ALTITUDE {
+	log S:PARTS[0]:GETMODULE("sensor"):GETFIELD("pressure") + "," + S:ALTITUDE TO "0:/p_dat.txt".
+	log S:PARTS[0]:GETMODULEBYINDEX(32):GETFIELD("temperature") + "," + S:ALTITUDE TO "0:/t_dat.txt".
+	SET A TO S:ALTITUDE.
+	WAIT 0.01.
+}.

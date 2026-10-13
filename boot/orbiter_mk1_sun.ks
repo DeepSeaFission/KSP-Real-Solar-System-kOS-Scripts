@@ -1,0 +1,1 @@
+copypath("0:/omk1s","").WAIT 3.run omk1s.
